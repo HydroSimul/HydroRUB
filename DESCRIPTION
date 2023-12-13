@@ -1,0 +1,24 @@
+Package: HydroCourse
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Kan Lei
+Maintainer: Kan Lei <kan.lei@rub.de>
+Description: This package will collect all the functions used in the course in Ruhr-Universität Bochum.
+License: GPL (>= 2)
+Imports: mathjaxr, Rdpack, 
+  hydroGOF, 
+  tidyverse, patchwork, stringr,
+  reshape2
+RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
+RdMacros: mathjaxr, Rdpack
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+URL: https://github.com/HydroSimul/HydroCourse, https://hydrosimul.github.io/HydroCourse/
+Depends: 
+    R (>= 2.10)
+LazyData: true
