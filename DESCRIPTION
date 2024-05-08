@@ -9,8 +9,9 @@ License: GPL (>= 2)
 Imports: mathjaxr, Rdpack, 
   hydroGOF, 
   tidyverse, patchwork, stringr,
-  reshape2
-RoxygenNote: 7.2.3
+  reshape2,
+  RCurl
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 RdMacros: mathjaxr, Rdpack
