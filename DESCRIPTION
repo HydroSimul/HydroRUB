@@ -10,7 +10,8 @@ Imports: mathjaxr, Rdpack,
   hydroGOF, 
   tidyverse, patchwork, stringr,
   reshape2,
-  RCurl
+  RCurl,
+  rlang, glue
 RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8

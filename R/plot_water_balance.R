@@ -3,10 +3,11 @@
 #' # HBV Results
 #' Water balance of HBV in time series with a) Flow and b) water state.
 #' @param df_Model_Results (tibble / data.frame) water balance variable from HBV models
+#' @param if_Prec (TRUE / FALSE) weather plot the precipitation
 #' @importFrom reshape2 melt
 #' @import patchwork tidyverse
 #' @export
-plot_water_balance.HBV <- function(df_Model_Results, if_Perc = FALSE) {
+plot_water_balance.HBV <- function(df_Model_Results, if_Prec = FALSE) {
   if (!is.Date(df_Model_Results$Date)) df_Model_Results$Date <- as_date(df_Model_Results$Date |> as.character(), format = "%Y%m%d")
 
   melt_flow <- melt(df_Model_Results[,c("AET", "Q0", "Q1", "Q2", "Date")], id.vars = "Date")
@@ -16,7 +17,7 @@ plot_water_balance.HBV <- function(df_Model_Results, if_Perc = FALSE) {
   mean_ps <- colMeans(df_Model_Results[,c("Precipitation", "Qsim")])
   max_ps <- apply(df_Model_Results[,c("Precipitation", "Qsim")], 2, max)
   # plot flow ---------
-  if (if_Perc) {
+  if (if_Prec) {
     gp_10 <- ggplot() +
       geom_col(aes(Date, Precipitation, color = "Precipitation"), data = df_Model_Results, alpha = .5, fill = "cyan")
   } else {

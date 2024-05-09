@@ -4,10 +4,12 @@
 \alias{plot_water_balance.HBV}
 \title{Water balance plot}
 \usage{
-plot_water_balance.HBV(df_Model_Results, if_Perc = FALSE)
+plot_water_balance.HBV(df_Model_Results, if_Prec = FALSE)
 }
 \arguments{
 \item{df_Model_Results}{(tibble / data.frame) water balance variable from HBV models}
+
+\item{if_Prec}{(TRUE / FALSE) weather plot the precipitation}
 }
 \description{
 Water balance plot
