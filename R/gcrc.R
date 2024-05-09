@@ -16,7 +16,8 @@ find_gcrc_location <- function(str_Continent, id_GCRC) {
   # pre test --------
   if(!(str_Continent %in% c("eu", "af","as","au","na","sa"))) abort(glue_col('{blue `str_Continent`} must be one of {green "eu"} (Europe), {green "af"} (Africa), {green "as"} (Asia), {green "au"} (Australia), {green "na"} (North America), or {green "sa"} (South America).'))
   id_Max <- nrow(lst_GCRC[[str_Continent]])
-  if(id_GCRC > id_Max) abort(glue_col('The {blue `id_GCRC`} {red {id_GCRC}}  is bigger than the maximal ID {green {id_Max}} in {blue "{str_Continent}"}.'))
+  id_MyMax <- max(id_GCRC)
+  if(id_MyMax > id_Max) abort(glue_col('The {blue `id_GCRC`} {red {id_MyMax}}  is bigger than the maximal ID {green {id_Max}} in {blue "{str_Continent}"}.'))
 
   # main --------
   lst_GCRC[[str_Continent]][id_GCRC,]
