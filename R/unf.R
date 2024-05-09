@@ -12,12 +12,15 @@
 #' @return vector of numric or integer by read, UNF file by write
 #' @export
 read_UNF <- function(fn_UNF) {
-  mark_UNF <- str_sub(fn_UNF, -1) |> as.integer()
-  type_UNF <- c("numeric", "int", "int", "", "integer", "", "", "", "", "double")[mark_UNF + 1]
-  n_Byte <- ifelse(mark_UNF, mark_UNF, 4L)
+  info_UNF <- analyse_file_unf(fn_UNF)
+
   n_FileSize <- file.size(fn_UNF)
-  n_DataSize <- n_FileSize / n_Byte
-  readBin(fn_UNF, type_UNF, n_DataSize, n_Byte, endian = "big")
+  n_DataSize <- n_FileSize / info_UNF$n_Byte
+
+  ary_Read <- readBin(fn_UNF, info_UNF$type_UNF, n_DataSize, info_UNF$n_Byte, endian = "big")
+  if(info_UNF$n_Dim1 > 1) dim(ary_Read) <- c(info_UNF$n_Dim1, n_DataSize / info_UNF$n_Dim1)
+  ary_Read
+
 }
 
 #' @rdname unf
@@ -26,14 +29,17 @@ read_UNF <- function(fn_UNF) {
 #' @param str_Username string, the name of the user on the remote machine
 #' @param str_Password string, a password for accessing the local SSH key
 #' @export
-read_UNF_scp <- function(fn_UNF, ip_Host, str_Password, str_Username) {
-  mark_UNF <- str_sub(fn_UNF, -1) |> as.integer()
-  type_UNF <- c("numeric", "int", "int", "", "integer", "", "", "", "", "double")[mark_UNF + 1]
-  n_Byte <- ifelse(mark_UNF, mark_UNF, 4L)
+read_UNF_scp <- function(fn_UNF, ip_Host, str_Username, str_Password) {
+  info_UNF <- analyse_file_unf(fn_UNF)
+
   raw_SCP <- scp(ip_Host, fn_UNF, password = str_Password, user = str_Username)
   n_FileSize <- length(raw_SCP)
-  n_DataSize <- n_FileSize / n_Byte
-  readBin(raw_SCP, type_UNF, n_DataSize, n_Byte, endian = "big")
+  n_DataSize <- n_FileSize / info_UNF$n_Byte
+
+  ary_Read <- readBin(raw_SCP, info_UNF$type_UNF, n_DataSize, info_UNF$n_Byte, endian = "big")
+  if(info_UNF$n_Dim1 > 1) dim(ary_Read) <- c(info_UNF$n_Dim1, n_DataSize / info_UNF$n_Dim1)
+  ary_Read
+
 }
 
 #' @rdname unf
@@ -44,4 +50,18 @@ write_UNF <- function(data_Export, fn_UNF) {
   fct_AsType <- c(as.numeric, as.integer, as.integer, "", as.integer, "", "", "", "", as.numeric)[[mark_UNF + 1]]
   n_Byte <- ifelse(mark_UNF, mark_UNF, 4L)
   writeBin(fct_AsType(data_Export), fn_UNF, n_Byte, endian = "big")
+}
+
+
+
+analyse_file_unf <- function(fn_UNF) {
+  mark_UNF <- str_sub(fn_UNF, -1) |> as.integer()
+  type_UNF <- c("numeric", "int", "int", "", "integer", "", "", "", "", "double")[mark_UNF + 1]
+  n_Byte <- ifelse(mark_UNF, mark_UNF, 4L)
+  n_Dim1 <- 1
+  str_MatrxDot <- str_sub(fn_UNF, -8, -8)
+  str_MatrixN <- str_sub(fn_UNF, -7, -6)
+  if_Matrix <- str_MatrxDot == "." & str_MatrixN %in% c("12", "31")
+  if(if_Matrix) n_Dim1 <- as.integer(str_MatrixN)
+  return(list(type_UNF = type_UNF, n_Byte = n_Byte, n_Dim1 = n_Dim1))
 }

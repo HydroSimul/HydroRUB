@@ -9,7 +9,7 @@
 \usage{
 read_UNF(fn_UNF)
 
-read_UNF_scp(fn_UNF, ip_Host, str_Password, str_Username)
+read_UNF_scp(fn_UNF, ip_Host, str_Username, str_Password)
 
 write_UNF(data_Export, fn_UNF)
 }
@@ -18,9 +18,9 @@ write_UNF(data_Export, fn_UNF)
 
 \item{ip_Host}{string, the name of the remote host or its IP address}
 
-\item{str_Password}{string, a password for accessing the local SSH key}
-
 \item{str_Username}{string, the name of the user on the remote machine}
+
+\item{str_Password}{string, a password for accessing the local SSH key}
 
 \item{data_Export}{vector, data, that would exported}
 }
