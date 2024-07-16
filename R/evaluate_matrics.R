@@ -9,6 +9,7 @@
 #' Evatueltion matrics with several methods.
 #'
 #' @details
+#' \loadmathjax
 #' ## Mean Error (BIAS / ME)
 #'
 #' \mjsdeqn{
@@ -17,25 +18,25 @@
 #'
 #' ## Mean Absolute Error (MAE)
 #'
-#' \deqn{
+#' \mjsdeqn{
 #' \mathrm{MAE} = \frac{1}{N} \sum_{i=1}^N \left| S_i - O_i \right|
 #' }
 #'
 #' ## Mean Squared Error (MSE)
 #'
-#' \deqn{
+#' \mjsdeqn{
 #' \mathrm{MSE} = \frac{1}{N} \sum_{i=1}^N \left( S_i - O_i \right)^2
 #' }
 #'
 #' ## Root Mean Square Error (RMSE)
 #'
-#' \deqn{
+#' \mjsdeqn{
 #' \mathrm{RMSE} = \sqrt{ \frac{1}{N} \sum_{i=1}^N \left( S_i - O_i \right)^2 }
 #' }
 #'
 #'
 #' ## Coefficient of Determination (R2)
-#' \deqn{
+#' \mjsdeqn{
 #' R^2 = \frac{\left( \sum_{i=1}^n (O_i - \bar{O})(S_i - \bar{S}) \right)^2}{\left( \sum_{i=1}^n (O_i - \bar{O})^2 \right) \cdot \left( \sum_{i=1}^n (S_i - \bar{S})^2 \right)}
 #' }
 #'
@@ -43,7 +44,7 @@
 #'
 #' from \insertCite{NSE_1970}{HydroRUB}
 #'
-#' \deqn{
+#' \mjsdeqn{
 #' \mathrm{NSE} = 1 - \frac{ \sum_{i=1}^N \left( S_i - O_i \right)^2 }{ \sum_{i=1}^N \left( O_i - \bar{O} \right)^2 }
 #' }
 #'
@@ -51,25 +52,25 @@
 #'
 #' from \insertCite{KGE_2009,KGE_Kling_2012}{HydroRUB}
 #'
-#' \deqn{
+#' \mjsdeqn{
 #' \mathrm{KGE} = 1 - \mathrm{ED}
 #' }
 #'
-#' \deqn{
+#' \mjsdeqn{
 #' \mathrm{ED} = \sqrt{ \left( s[1](r-1) \right)^2 + \left( s[2](\alpha-1) \right)^2 + \left( s[3](\beta-1) \right)^2 }
 #' }
 #'
 #' where
 #'
-#' \deqn{
+#' \mjsdeqn{
 #' r = \frac{\text{cov}(S, O)}{\sigma_s \sigma_o}
 #' }
 #'
-#' \deqn{
+#' \mjsdeqn{
 #' \alpha = \frac{\sigma_s}{\sigma_o}
 #' }
 #'
-#' \deqn{
+#' \mjsdeqn{
 #' \beta = \frac{\mu_s}{\mu_o}
 #' }
 #'
