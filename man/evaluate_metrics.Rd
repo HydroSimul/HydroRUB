@@ -39,7 +39,7 @@ Evatueltion matrics with several methods.
 \details{
 \subsection{Mean Error (BIAS / ME)}{
 
-\deqn{
+\mjsdeqn{
 \mathrm{ME} = \frac{1}{N} \sum_{i=1}^N \left( S_i - O_i \right)
 }
 }
