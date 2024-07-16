@@ -71,8 +71,7 @@
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-
-<div class="section">
+    <p><script id="MathJax-script" async src="../../mathjaxr/doc/mathjax/es5/tex-chtml-full.js"></script></p><div class="section">
 <h3 id="mean-error-bias-me-">Mean Error (BIAS / ME)<a class="anchor" aria-label="anchor" href="#mean-error-bias-me-"></a></h3>
 
 
@@ -85,36 +84,36 @@
 <h3 id="mean-absolute-error-mae-">Mean Absolute Error (MAE)<a class="anchor" aria-label="anchor" href="#mean-absolute-error-mae-"></a></h3>
 
 
-<p>$$
+<p>\[
 \mathrm{MAE} = \frac{1}{N} \sum_{i=1}^N \left| S_i - O_i \right|
-$$</p>
+\]</p>
 </div>
 
 <div class="section">
 <h3 id="mean-squared-error-mse-">Mean Squared Error (MSE)<a class="anchor" aria-label="anchor" href="#mean-squared-error-mse-"></a></h3>
 
 
-<p>$$
+<p>\[
 \mathrm{MSE} = \frac{1}{N} \sum_{i=1}^N \left( S_i - O_i \right)^2
-$$</p>
+\]</p>
 </div>
 
 <div class="section">
 <h3 id="root-mean-square-error-rmse-">Root Mean Square Error (RMSE)<a class="anchor" aria-label="anchor" href="#root-mean-square-error-rmse-"></a></h3>
 
 
-<p>$$
+<p>\[
 \mathrm{RMSE} = \sqrt{ \frac{1}{N} \sum_{i=1}^N \left( S_i - O_i \right)^2 }
-$$</p>
+\]</p>
 </div>
 
 <div class="section">
 <h3 id="coefficient-of-determination-r-">Coefficient of Determination (R2)<a class="anchor" aria-label="anchor" href="#coefficient-of-determination-r-"></a></h3>
 
 
-<p>$$
+<p>\[
 R^2 = \frac{\left( \sum_{i=1}^n (O_i - \bar{O})(S_i - \bar{S}) \right)^2}{\left( \sum_{i=1}^n (O_i - \bar{O})^2 \right) \cdot \left( \sum_{i=1}^n (S_i - \bar{S})^2 \right)}
-$$</p>
+\]</p>
 </div>
 
 <div class="section">
@@ -122,9 +121,9 @@ $$</p>
 
 
 <p>from</p>
-<p>$$
+<p>\[
 \mathrm{NSE} = 1 - \frac{ \sum_{i=1}^N \left( S_i - O_i \right)^2 }{ \sum_{i=1}^N \left( O_i - \bar{O} \right)^2 }
-$$</p>
+\]</p>
 </div>
 
 <div class="section">
@@ -132,22 +131,22 @@ $$</p>
 
 
 <p>from</p>
-<p>$$
+<p>\[
 \mathrm{KGE} = 1 - \mathrm{ED}
-$$</p>
-<p>$$
+\]</p>
+<p>\[
 \mathrm{ED} = \sqrt{ \left( s[1](r-1) \right)^2 + \left( s[2](\alpha-1) \right)^2 + \left( s[3](\beta-1) \right)^2 }
-$$</p>
+\]</p>
 <p>where</p>
-<p>$$
+<p>\[
 r = \frac{\text{cov}(S, O)}{\sigma_s \sigma_o}
-$$</p>
-<p>$$
+\]</p>
+<p>\[
 \alpha = \frac{\sigma_s}{\sigma_o}
-$$</p>
-<p>$$
+\]</p>
+<p>\[
 \beta = \frac{\mu_s}{\mu_o}
-$$</p>
+\]</p>
 </div>
 
     </div>
